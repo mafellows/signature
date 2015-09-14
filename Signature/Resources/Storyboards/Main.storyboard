@@ -1,7 +1,198 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fne-4e-pd7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="0qk-gB-Gul">
+            <objects>
+                <navigationController id="fne-4e-pd7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ygk-3a-XRD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Wkb-kx-awY" kind="relationship" relationship="rootViewController" id="ApX-ab-eJE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9N-at-f13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="670"/>
+        </scene>
+        <!--Signature+-->
+        <scene sceneID="kAM-K8-cgH">
+            <objects>
+                <viewController title="Signature+" id="Wkb-kx-awY" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h5z-cg-WVy"/>
+                        <viewControllerLayoutGuide type="bottom" id="PY1-xk-E2w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QiP-9e-LLM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkz-wv-7Zi">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Clear" id="I7n-kE-zEW">
+                                        <connections>
+                                            <action selector="clearPressed:" destination="Wkb-kx-awY" id="3qD-0n-YlY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Hdb-So-jf5"/>
+                                    <barButtonItem image="35_Ruler" id="hvs-jX-dUg">
+                                        <connections>
+                                            <action selector="sizeButtonPressed:" destination="Wkb-kx-awY" id="wpR-4I-x01"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="g4D-lm-9FY"/>
+                                    <barButtonItem image="38_Palette" style="plain" id="p8J-cp-X6d">
+                                        <connections>
+                                            <action selector="colorPressed:" destination="Wkb-kx-awY" id="anR-w9-yuE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.86274509799999999" green="0.23137254900000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="PY1-xk-E2w" firstAttribute="top" secondItem="gkz-wv-7Zi" secondAttribute="bottom" id="160-TR-6ca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gkz-wv-7Zi" secondAttribute="trailing" constant="-16" id="ICy-8c-pkz"/>
+                            <constraint firstItem="gkz-wv-7Zi" firstAttribute="leading" secondItem="QiP-9e-LLM" secondAttribute="leadingMargin" constant="-16" id="W0n-tn-6ap"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7De-Pc-Kuw" appends="YES" id="xwM-ZV-RVL"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Signature+" id="yhZ-9M-EA6">
+                        <barButtonItem key="leftBarButtonItem" image="66_Gear" id="fYA-Kz-V66">
+                            <color key="tintColor" red="0.86274509799999999" green="0.23137254900000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="PJb-io-nT8" kind="show" id="jME-PU-nfl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="BXq-yY-8Zc">
+                            <color key="tintColor" red="0.86274509799999999" green="0.23137254900000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="sharePressed:" destination="Wkb-kx-awY" id="DG2-AE-dLk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomToolbar" destination="gkz-wv-7Zi" id="ueA-mc-sve"/>
+                        <outlet property="colorBarButton" destination="p8J-cp-X6d" id="aC0-Cr-yWd"/>
+                        <outlet property="sizeBarButton" destination="hvs-jX-dUg" id="9la-oH-7Gq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEC-zq-QE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7De-Pc-Kuw">
+                    <connections>
+                        <action selector="viewTapped:" destination="Wkb-kx-awY" id="w1E-Yc-OMn"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1653" y="672"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="ij5-RS-ro5">
+            <objects>
+                <tableViewController id="PJb-io-nT8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rw5-pw-jTs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection footerTitle="Having trouble? We'll walk you through the tutoriial on how to use Signature+." id="Vuf-KQ-jI8">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4yw-B9-C9e" style="IBUITableViewCellStyleDefault" id="0Wf-z4-qBx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Wf-z4-qBx" id="ViR-rR-4VQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4yw-B9-C9e">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="If you have questions or feedback, please contact support. " id="SSq-hz-02Y">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZbO-PZ-26G" style="IBUITableViewCellStyleDefault" id="Hej-Uk-mjT">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hej-Uk-mjT" id="r75-kT-uWL">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Contact Support" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZbO-PZ-26G">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Connect with us, share your experience, and keep informed about Broadway Lab updates. " id="e35-xQ-mVU">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="quS-vk-Sbt" style="IBUITableViewCellStyleDefault" id="AWa-bC-Gh0">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWa-bC-Gh0" id="1bv-Cd-smS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Follow Broadway Lab on Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="quS-vk-Sbt">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Please take a moment to rate Signature+ on the App Store." id="EwO-M9-tio">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZKr-zq-dmG" style="IBUITableViewCellStyleDefault" id="wbS-94-vkJ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbS-94-vkJ" id="N9M-Ll-9kA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Rate Signature+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZKr-zq-dmG">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="PJb-io-nT8" id="C15-be-I1g"/>
+                            <outlet property="delegate" destination="PJb-io-nT8" id="0v6-WB-ri3"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vWI-WL-4Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2521" y="675"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="35_Ruler" width="25" height="25"/>
+        <image name="38_Palette" width="25" height="25"/>
+        <image name="66_Gear" width="25" height="25"/>
+    </resources>
 </document>

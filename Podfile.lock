@@ -1,5 +1,7 @@
 PODS:
   - Expecta (1.0.3)
+  - JNWSpringAnimation (0.7.1)
+  - NKOColorPickerView (0.2)
   - OCMock (3.1.5)
   - OHHTTPStubs (4.2.0):
     - OHHTTPStubs/Default (= 4.2.0)
@@ -14,18 +16,25 @@ PODS:
   - OHHTTPStubs/NSURLSession (4.2.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (4.2.0)
+  - pop (1.0.7)
   - Specta (1.0.3)
 
 DEPENDENCIES:
   - Expecta
+  - JNWSpringAnimation
+  - NKOColorPickerView
   - OCMock
   - OHHTTPStubs
+  - pop (~> 1.0)
   - Specta
 
 SPEC CHECKSUMS:
   Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
+  JNWSpringAnimation: cd4c2f4464324f63f176c3624ffccf205211a100
+  NKOColorPickerView: 3001ad15be1277dac3b80b300f530828e93b23ae
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   OHHTTPStubs: f639130b83fb5f4f022d38f841141b0a6fa77249
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
 
 COCOAPODS: 0.38.2
