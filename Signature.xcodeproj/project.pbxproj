@@ -14,6 +14,7 @@
 		675379827D7D841469FED867 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 115F1D9673A38F604D60C2F7 /* AppDelegate.m */; };
 		9D15DB6D1BA7450D00E02054 /* SizePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DB6C1BA7450D00E02054 /* SizePickerView.m */; };
 		9D15DB701BA74D1200E02054 /* MFSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DB6F1BA74D1200E02054 /* MFSignatureView.m */; };
+		9D15DB731BA7580A00E02054 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15DB721BA7580A00E02054 /* DataStore.m */; };
 		9DD160FF1BA53796009BA06C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD160FE1BA53796009BA06C /* MainViewController.m */; };
 		9DD161021BA7098C009BA06C /* ColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD161011BA7098C009BA06C /* ColorPickerView.m */; };
 		9DD161051BA70F23009BA06C /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD161041BA70F23009BA06C /* TriangleView.m */; };
@@ -52,6 +53,8 @@
 		9D15DB6C1BA7450D00E02054 /* SizePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizePickerView.m; sourceTree = "<group>"; };
 		9D15DB6E1BA74D1200E02054 /* MFSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSignatureView.h; sourceTree = "<group>"; };
 		9D15DB6F1BA74D1200E02054 /* MFSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSignatureView.m; sourceTree = "<group>"; };
+		9D15DB711BA7580A00E02054 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		9D15DB721BA7580A00E02054 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		9DD160FD1BA53796009BA06C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9DD160FE1BA53796009BA06C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9DD161001BA7098C009BA06C /* ColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerView.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 		9752ABFD6711AD7A9411739F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D15DB711BA7580A00E02054 /* DataStore.h */,
+				9D15DB721BA7580A00E02054 /* DataStore.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D15DB701BA74D1200E02054 /* MFSignatureView.m in Sources */,
+				9D15DB731BA7580A00E02054 /* DataStore.m in Sources */,
 				9DD161051BA70F23009BA06C /* TriangleView.m in Sources */,
 				675379827D7D841469FED867 /* AppDelegate.m in Sources */,
 				53A0B8580E2138C6E892AB06 /* Main.storyboard in Sources */,

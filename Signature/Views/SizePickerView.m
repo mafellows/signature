@@ -10,6 +10,13 @@
 #import "JNWSpringAnimation.h"
 #import "UIColor+SigColors.h"
 
+@interface SizePickerView ()
+
+@property (nonatomic, weak) UISlider *slider;
+@property (nonatomic, weak) UIView *colorPreviewView;
+
+@end
+
 @implementation SizePickerView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -88,6 +95,7 @@
         colorPreviewView.translatesAutoresizingMaskIntoConstraints = NO;
         colorPreviewView.layer.cornerRadius = 5.0f;
         [topContainer addSubview:colorPreviewView];
+        _colorPreviewView = colorPreviewView;
         
         UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
         dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -103,6 +111,10 @@
         [acceptButton setImage:[[UIImage imageNamed:@"306_Check-circle"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                       forState:UIControlStateNormal];
         [topContainer addSubview:acceptButton];
+        
+        [acceptButton addTarget:self
+                         action:@selector(acceptPressed:)
+               forControlEvents:UIControlEventTouchUpInside];
         
         NSDictionary *topViews = NSDictionaryOfVariableBindings(colorPreviewView, dismissButton, acceptButton);
         
@@ -120,6 +132,7 @@
         slider.maximumValue = 15.0f;
         slider.minimumTrackTintColor = self.currentColor;
         [middleContainer addSubview:slider];
+        _slider = slider;
         
         [slider addTarget:self
                    action:@selector(sliderChanged:)
@@ -134,18 +147,20 @@
          Constraints
          **/
         {
-            [topContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[colorPreviewView]-(0)-|"
+            [topContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[colorPreviewView]-(0)-|"
                                                                                  options:0
                                                                                  metrics:nil
                                                                                    views:topViews]];
             
-            //            [topContainer addConstraint:[NSLayoutConstraint constraintWithItem:colorPreviewView
-            //                                                                     attribute:NSLayoutAttributeCenterX
-            //                                                                     relatedBy:NSLayoutRelationEqual
-            //                                                                        toItem:topContainer
-            //                                                                     attribute:NSLayoutAttributeCenterX
-            //                                                                    multiplier:1.0f
-            //                                                                      constant:1.0f]];
+            
+            
+//            [topContainer addConstraint:[NSLayoutConstraint constraintWithItem:colorPreviewView
+//                                                                     attribute:NSLayoutAttributeCenterY
+//                                                                     relatedBy:NSLayoutRelationEqual
+//                                                                        toItem:topContainer
+//                                                                     attribute:NSLayoutAttributeCenterY
+//                                                                    multiplier:1.0f
+//                                                                      constant:1.0f]];
             //
             //
             //            CGFloat width = CGRectGetWidth(self.frame) - 140.0f;
@@ -197,7 +212,7 @@
         CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
         CGFloat menuWidth = screenWidth * 0.5f;
         CGFloat menuHeight = screenHeight * 0.3f;
-        CGFloat padding = 80.0f;
+        CGFloat padding = 40.0f;
         
         view = [[SizePickerView alloc] initWithFrame:CGRectMake(screenWidth - menuWidth - 10.0f, (screenHeight * 0.7f) - padding, menuWidth, menuHeight)];
     });
@@ -212,9 +227,23 @@
 
 #pragma mark - Selector
 
+- (void)acceptPressed:(id)sender
+{
+    NSInteger value = (NSInteger)self.slider.value;
+    NSLog(@"int value: %ld", (long)value);
+    [self.delegate didPickSize:value];
+    [self remove];
+}
+
 - (void)sliderChanged:(UISlider *)slider
 {
     NSLog(@"%f", slider.value);
+    NSInteger v = (NSInteger)slider.value;
+    CGRect frame = self.colorPreviewView.frame;
+    frame.size.height = v;
+    frame.origin.y = 18 + ((15 - v) / 2);
+    NSLog(@"origin: %f", frame.origin.y);
+    self.colorPreviewView.frame = frame;
 }
 
 - (void)remove
@@ -254,7 +283,7 @@
     
 }
 
-- (void)showInView:(UIView *)view
+- (void)show
 {
     self.shown = YES;
     
@@ -286,7 +315,7 @@
     [self.layer addAnimation:translate forKey:translate.keyPath];
     self.transform = CGAffineTransformTranslate(self.transform, 0, 0);
     
-    [view addSubview:self];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
 }
 
 @end

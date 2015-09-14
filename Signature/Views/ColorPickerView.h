@@ -43,10 +43,9 @@
 + (ColorPickerView *)view;
 
 /** 
- @discuss Animates view and shows on screen. 
- @param parent view for the picker view
+ @discuss Animates view and shows on screen.
  **/ 
-- (void)showInView:(UIView *)view;
+- (void)show; 
 
 /**
  @discuss Removes the view with animation

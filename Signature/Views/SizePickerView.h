@@ -10,7 +10,7 @@
 
 @protocol SizePickerDelegate
 
-- (void)didPickSize:(CGFloat)size;
+- (void)didPickSize:(NSInteger)size;
 
 @end
 
@@ -40,7 +40,7 @@
  @discuss Animates view and shows on screen.
  @param parent view for the picker view
  **/
-- (void)showInView:(UIView *)view;
+- (void)show;
 
 /**
  @discuss Removes the view with animation

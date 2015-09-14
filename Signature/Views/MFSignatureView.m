@@ -28,7 +28,7 @@
         self.lineColor = [UIColor blackColor];
         
         // Set background color of view
-        self.bgColor = [UIColor whiteColor];
+        self.bgColor = [UIColor clearColor];
         self.backgroundColor = self.bgColor;
         
         // Capture user touches
@@ -43,9 +43,10 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [[UIColor blackColor] setStroke];
+    [self.lineColor setStroke];
+     self.path.lineWidth = self.lineWidth;
+    
     [self.path stroke];
-    self.path.lineWidth = self.lineWidth;
 }
 
 // Lazy instantiation of path

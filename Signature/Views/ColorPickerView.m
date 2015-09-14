@@ -105,6 +105,11 @@
                       forState:UIControlStateNormal];
         [topContainer addSubview:acceptButton];
         
+        
+        [acceptButton addTarget:self
+                         action:@selector(acceptButtonPressed:)
+               forControlEvents:UIControlEventTouchUpInside];
+        
         NSDictionary *topViews = NSDictionaryOfVariableBindings(colorPreviewView, dismissButton, acceptButton);
         
         colorPreviewView.backgroundColor = self.currentColor;
@@ -197,7 +202,7 @@
         CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
         CGFloat menuWidth = screenWidth * 0.5f;
         CGFloat menuHeight = screenHeight * 0.7f;
-        CGFloat padding = 80.0f;
+        CGFloat padding = 40.0f;
 
         view = [[ColorPickerView alloc] initWithFrame:CGRectMake(screenWidth - menuWidth - 10.0f, (screenHeight * 0.3f) - padding, menuWidth, menuHeight)];
     });
@@ -211,6 +216,12 @@
 }
 
 #pragma mark - Selector
+
+- (void)acceptButtonPressed:(id)sender
+{
+    [self.delegate userSelectedColor:self.currentColor];
+    [self remove]; 
+}
 
 - (void)remove
 {
@@ -249,7 +260,7 @@
 
 }
 
-- (void)showInView:(UIView *)view
+- (void)show
 {
     self.shown = YES;
     
@@ -281,7 +292,7 @@
     [self.layer addAnimation:translate forKey:translate.keyPath];
     self.transform = CGAffineTransformTranslate(self.transform, 0, 0);
     
-    [view addSubview:self];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
 }
 
 @end

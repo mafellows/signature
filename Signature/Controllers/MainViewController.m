@@ -11,7 +11,7 @@
 #import "MFSignatureView.h"
 #import "SizePickerView.h"
 
-@interface MainViewController ()
+@interface MainViewController () <SizePickerDelegate, ColorPickerViewDelegate>
 
 @property (nonatomic, assign, getter=isPickerShown) BOOL pickerShown;
 @property (nonatomic, strong) MFSignatureView *signatureView;
@@ -40,7 +40,7 @@
     [self.view addSubview:self.signatureView];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                    action:@selector(viewTapped:)]; 
+                                                                                    action:@selector(viewTapped:)];
     [self.navigationController.navigationBar addGestureRecognizer:tapRecognizer];
 }
 
@@ -99,10 +99,11 @@
     }
     
     ColorPickerView *colorPicker = [ColorPickerView view];
+    colorPicker.delegate = self;
     if ([colorPicker isShown]) {
         [[ColorPickerView view] remove];
     } else {
-        [colorPicker showInView:self.view];
+        [colorPicker show];
     }
 }
 
@@ -113,10 +114,11 @@
     }
     
     SizePickerView *sizePicker = [SizePickerView view];
+    sizePicker.delegate = self;
     if ([sizePicker isShown]) {
         [sizePicker remove];
     } else {
-        [sizePicker showInView:self.view];
+        [sizePicker show];
     }
 }
 
@@ -133,6 +135,20 @@
 - (IBAction)sharePressed:(id)sender
 {
     
+}
+
+#pragma mark - Delegate
+
+- (void)didPickSize:(NSInteger)size
+{
+    self.signatureView.lineWidth = size;
+    [self.signatureView setNeedsDisplay]; 
+}
+
+- (void)userSelectedColor:(UIColor *)color
+{
+    self.signatureView.lineColor = color;
+    [self.signatureView setNeedsDisplay];
 }
 
 @end
