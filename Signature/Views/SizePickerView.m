@@ -229,6 +229,8 @@
 
 - (void)acceptPressed:(id)sender
 {
+    NSLog(@"Foobar.."); 
+    
     NSInteger value = (NSInteger)self.slider.value;
     NSLog(@"int value: %ld", (long)value);
     [self.delegate didPickSize:value];
